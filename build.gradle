@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+}
+    
+project.ext {
+    lanyuVersion = "1.0.3"
+}   
+
+group = 'es.lanyu'
+version = '0.0.1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13'
+    api "com.github.LanyuEStudio:lanyuCommon:$lanyuVersion"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
