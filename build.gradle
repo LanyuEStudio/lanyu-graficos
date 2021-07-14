@@ -1,13 +1,10 @@
 plugins {
     id 'java-library'
-}
-    
-project.ext {
-    lanyuVersion = "1.0.3"
-}   
+    id 'eclipse'
+}  
 
 group = 'es.lanyu'
-version = '0.0.1'
+version = '1.0.4'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -18,7 +15,7 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
-    api "com.github.LanyuEStudio:lanyuCommon:$lanyuVersion"
+    api "com.github.LanyuEStudio:lanyu-commons:$lanyuVersion"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
